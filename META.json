@@ -1,7 +1,7 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Perl extention to output time list",
    "author" : [
-      "sato sin <shinichiro@wano.co.jp>"
+      "<<Shinichiro Sato>> <<<s2otsa59@gmail.com>>>"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v0.6.7, CPAN::Meta::Converter version 2.130880",
@@ -42,7 +42,7 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008005"
+            "perl" : "5.008001"
          }
       },
       "test" : {
@@ -52,5 +52,18 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/S2/p5-Time-List/issues"
+      },
+      "homepage" : "https://github.com/S2/p5-Time-List",
+      "repository" : {
+         "url" : "https://github.com/S2/p5-Time-List.git",
+         "web" : "https://github.com/S2/p5-Time-List"
+      }
+   },
+   "version" : "0.01",
+   "x_contributors" : [
+      "sato sin <shinichiro@wano.co.jp>"
+   ]
 }
