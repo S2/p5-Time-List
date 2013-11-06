@@ -48,6 +48,7 @@
       },
       "test" : {
          "requires" : {
+            "Data::Util" : "0",
             "Test::More" : "0.98"
          }
       }
@@ -63,7 +64,7 @@
          "web" : "https://github.com/S2/p5-Time-List"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_contributors" : [
       "sato sin <shinichiro@wano.co.jp>"
    ]
