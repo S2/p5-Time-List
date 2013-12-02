@@ -58,12 +58,8 @@ sub get_list{
         
         my ($end_year , $end_month) = ($end_tp->strftime('%Y') , $end_tp->strftime('%m'));
 
-        if($start_year < $end_year){
-            ($start_year , $start_month , $end_year , $end_month) = ($end_year , $end_month , $start_year , $start_month);
-        }
         if($self->boundary_included){
-            while($start_year < $end_year || $start_month <= $end_month){
-
+            while($start_year < $end_year || ($start_year == $end_year && $start_month <= $end_month)){
                 if($show_end_time){
                     my ( $next_year  , $next_month) = ($start_year , $start_month);
                     if(++$next_month > 12){
