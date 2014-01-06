@@ -183,6 +183,7 @@ This document describes Time::List::Rows version 0.07.
 =head1 SYNOPSIS
 
     use Time::List;
+    use Time::List::Constant;
     $start_time = "2013-01-01 00:00:00";
     $end_time = "2013-01-01 04:00:00";
     $time_list_rows = Time::List->new(

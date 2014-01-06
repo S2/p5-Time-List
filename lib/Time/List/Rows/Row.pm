@@ -105,6 +105,8 @@ This document describes Time::List version 0.07.
 =head1 SYNOPSIS
 
     use Time::List;
+    use Time::List::Constant;
+
     $timelist = Time::List->new(
         input_strftime => '%Y-%m-%d %H:%M:%S',
         output_strftime => '%Y-%m-%d %H:%M:%S',
