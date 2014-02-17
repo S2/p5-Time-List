@@ -4,7 +4,7 @@
       "<<Shinichiro Sato>> <<<s2otsa59@gmail.com>>>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.8.0, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Minilla/v0.11.0, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -66,7 +66,7 @@
          "web" : "https://github.com/S2/p5-Time-List"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_contributors" : [
       "sato sin <shinichiro@wano.co.jp>"
    ]
