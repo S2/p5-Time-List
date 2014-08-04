@@ -146,7 +146,7 @@ sub get_array{
             my $row = $unixtime_rows_hash->{$_->unixtime}->get_values;
             for my $key(keys %$row){
                 my $value = $row->{$key};
-                if($value && $value =~ /^\d+$/){
+                if($value && $value =~ /(^|^-)(\d+|\d+\.\d+)$/){
                     $summary->{$key} += $value;
                 }
             }
