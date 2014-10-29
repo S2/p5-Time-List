@@ -148,7 +148,12 @@ sub get_array{
         my $rows = [map{
             my $row = $unixtime_rows_hash->{$_->unixtime}->get_values;
             if($self->filter){
-                for my $key (@{$self->filter_keys}){
+                $row = {%$row};
+                my @filter_keys = @{$self->filter_keys};
+                if(ref $filter_keys[0] eq "SCALAR" && ${$filter_keys[0]} eq "*"){
+                    @filter_keys = keys $row 
+                }
+                for my $key (@filter_keys){
                     if(exists $row->{$key}){
                         $row->{$key} = $self->filter->($row->{$key});
                     }
@@ -170,7 +175,24 @@ sub get_array{
 
         return $rows;
     }else{
-        return [map{$unixtime_rows_hash->{$_->unixtime}->get_values}@{$self->time_rows}]
+        return [map{
+                my $row = $unixtime_rows_hash->{$_->unixtime}->get_values;
+
+                if($self->filter){
+                    $row = {%$row};
+                    my @filter_keys = @{$self->filter_keys};
+                    if(ref $filter_keys[0] eq "SCALAR" && ${$filter_keys[0]} eq "*"){
+                        @filter_keys = keys $row 
+                    }
+                    for my $key (@filter_keys){
+                        if(exists $row->{$key}){
+                            $row->{$key} = $self->filter->($row->{$key});
+                        }
+                    }
+                }
+
+                $row;
+            }@{$self->time_rows}]
     }
 }
 
