@@ -28,7 +28,9 @@ my %DEFAULTS = (
     unixtime_rows_hash => {},
     datetime_rows_hash => {},
     create_summary => 0 , 
-    summary_key_name => "summary"
+    summary_key_name => "summary" , 
+    filter => undef , 
+    filter_keys => [] , 
 );
 
 Class::Accessor::Lite->mk_accessors(keys %DEFAULTS);
@@ -142,19 +144,30 @@ sub get_array{
     my $unixtime_rows_hash = $self->unixtime_rows_hash;
     if($self->create_summary){
         my $summary = {};
+
         my $rows = [map{
             my $row = $unixtime_rows_hash->{$_->unixtime}->get_values;
+            if($self->filter){
+                for my $key (@{$self->filter_keys}){
+                    if(exists $row->{$key}){
+                        $row->{$key} = $self->filter->($row->{$key});
+                    }
+                }
+            }
+
             for my $key(keys %$row){
                 my $value = $row->{$key};
                 if($value && $value =~ /(^|^-)(\d+|\d+\.\d+)$/){
                     $summary->{$key} += $value;
                 }
             }
+
             $row;
         }@{$self->time_rows}];
         $summary->{output_time} = $self->summary_key_name;
         push @$rows , $summary ;
         unshift @$rows , $summary;
+
         return $rows;
     }else{
         return [map{$unixtime_rows_hash->{$_->unixtime}->get_values}@{$self->time_rows}]

@@ -25,7 +25,9 @@ my %DEFAULTS = (
     boundary_included => 1 ,
     end_time_separate_chars   => '~' ,
     create_summary => 0 , 
-    summary_key_name => "summary"
+    summary_key_name => "summary" , 
+    filter => undef , 
+    filter_keys => [] , 
 );
 
 Class::Accessor::Lite->mk_accessors(keys %DEFAULTS);
@@ -172,7 +174,7 @@ sub get_list{
         }
     }elsif($output_type == ROWS){
         my %args = %$self;
-        Time::List::Rows->new(%args , time_array => $time_array);
+        return Time::List::Rows->new(%args , time_array => $time_array);
     }else{
         die 'set output type';
     }
