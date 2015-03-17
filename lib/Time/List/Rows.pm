@@ -151,7 +151,7 @@ sub get_array{
                 $row = {%$row};
                 my @filter_keys = @{$self->filter_keys};
                 if(ref $filter_keys[0] eq "SCALAR" && ${$filter_keys[0]} eq "*"){
-                    @filter_keys = keys $row 
+                    @filter_keys = keys %$row 
                 }
                 for my $key (@filter_keys){
                     if(exists $row->{$key}){
@@ -182,7 +182,7 @@ sub get_array{
                     $row = {%$row};
                     my @filter_keys = @{$self->filter_keys};
                     if(ref $filter_keys[0] eq "SCALAR" && ${$filter_keys[0]} eq "*"){
-                        @filter_keys = keys $row 
+                        @filter_keys = keys %$row 
                     }
                     for my $key (@filter_keys){
                         if(exists $row->{$key}){
