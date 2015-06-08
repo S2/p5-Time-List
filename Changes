@@ -2,6 +2,11 @@ Revision history for Perl extension Time-List
 
 {{$NEXT}}
 
+0.13 2015-06-08T01:41:50Z
+
+    - fix forget dereference before keys
+    - keys $row => keys %$row
+
 0.12 2014-10-29T08:45:12Z
     - add array ref filter
 

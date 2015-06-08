@@ -4,7 +4,7 @@ Time::List - Perl extention to output time list
 
 # VERSION
 
-This document describes Time::List version 0.12.
+This document describes Time::List version 0.13.
 
 # SYNOPSIS
 
@@ -38,7 +38,6 @@ This document describes Time::List version 0.12.
 ## Functions
 
 ### `new`
-    
 
     # You can set some options.
     $timelist->new(
@@ -54,7 +53,6 @@ This document describes Time::List version 0.12.
     $timelist->output_type(HASH);
 
 ### `get_list`
-    
 
     # You can get TimeArray 
     $timelist->output_type(HASH);
@@ -83,7 +81,7 @@ to cpan-RT.
 
 # SEE ALSO
 
-[perl](http://search.cpan.org/perldoc?perl)
+[perl](https://metacpan.org/pod/perl)
 
 # AUTHOR
 
